@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public long id;
+    public Integer id;
     public String username;
     public String password;
     public String roles;
@@ -19,7 +19,7 @@ public class User {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
