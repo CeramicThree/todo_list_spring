@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3" >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -7,8 +8,15 @@
     <title th:text="${title}"></title>
 </head>
 <body>
+    <div class="container">
+        <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+        <form th:action="@{/logout}" method="post">
+            <button class="btn btn-outline-danger">Sign Out</button>
+        </form>
+    </div>
     <div class="container mt-5">
         <div class="container mt-2 alert alert-primary" th:each="el : ${todos}">
+            <label style="float: right" th:text="${el.author}"/>
             <h1 style="display: inline-block" th:text="${el.text}"/>
             <p th:text="${el.description}"/>
             <button type="submit" name="done" class="btn btn-outline-primary btn-lg">Done</button>

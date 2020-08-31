@@ -12,17 +12,19 @@ public class ToDo {
     public Integer id;
     public String text;
     public String description;
+    public String author;
     public boolean isDone;
 
-    public ToDo() {
-    }
-
-    public ToDo(String text, String description, boolean isDone) {
+    public ToDo(String text, String description, String author, boolean isDone) {
+        this.id = id;
         this.text = text;
         this.description = description;
+        this.author = author;
         this.isDone = isDone;
     }
 
+    public ToDo() {
+    }
 
     public Integer getId() {
         return id;
@@ -46,6 +48,14 @@ public class ToDo {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public boolean isDone() {

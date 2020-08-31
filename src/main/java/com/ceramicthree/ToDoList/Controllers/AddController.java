@@ -21,8 +21,8 @@ public class AddController {
     }
 
     @PostMapping("/add")
-    public String newToDo(@RequestParam String name, @RequestParam String description, Model model){
-        ToDo toDo = new ToDo(name, description, false);
+    public String newToDo(@RequestParam String name, @RequestParam String description, @RequestParam String author, Model model){
+        ToDo toDo = new ToDo(name, description, author, false);
         toDoRepo.save(toDo);
         return "redirect:/";
     }

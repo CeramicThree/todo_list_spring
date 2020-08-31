@@ -18,6 +18,7 @@
                 <label>Description</label>
                 <input type="text" name="description" class="form-control">
             </div>
+            <input type="text" name="author" hidden="hidden" th:value="${#httpServletRequest.remoteUser}">
             <button type="submit" class="btn btn-outline-success btn-lg">Add</button>
         </form>
     </div>
