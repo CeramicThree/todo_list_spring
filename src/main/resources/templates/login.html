@@ -7,16 +7,22 @@
 </head>
 <body>
 <div th:if="${param.error}">
-    Invalid username and password.
+    <h1>Invalid username and password.</h1>
 </div>
 <div th:if="${param.logout}">
-    You have been logged out.
+    <h1>You have been logged out.</h1>
 </div>
-<div style="position: absolute; top: 30%; left: 10%" class="container">
-<form th:action="@{/login}" method="post">
-    <div><label> User Name : <input class="form-control" type="text" name="username"/> </label></div>
-    <div><label> Password: <input class="form-control" type="password" name="password"/> </label></div>
-    <button class="btn btn-lg btn-success" type="submit" value="Sign In"/>
+<div style="width: 30%; float: left" class="container mt-5">
+<form th:action="@{/login}" method="post" class="form-control">
+    <div class="container">
+        <label>User Name :</label>
+        <input class="form-control" type="text" name="username"/>
+    </div>
+    <div class="container">
+        <label>Password:</label>
+        <input class="form-control" type="password" name="password"/>
+    </div>
+    <button class="btn btn-lg btn-success mt-3" type="submit" value="Sign In"/>
 </form>
 </div>
 </body>

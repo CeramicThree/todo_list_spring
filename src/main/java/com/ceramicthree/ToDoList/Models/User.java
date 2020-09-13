@@ -15,7 +15,17 @@ public class User {
     public String roles;
     public boolean active;
 
-    public long getId() {
+    public User() {
+    }
+
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+        this.roles = "USER";
+        this.active = true;
+    }
+
+    public Integer getId() {
         return id;
     }
 
