@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Optional;
+
 @Controller
 public class SignUpController {
     @Autowired
@@ -20,10 +22,15 @@ public class SignUpController {
     }
 
     @PostMapping("/signup")
-    public String signUp(@RequestParam String username, @RequestParam String password, Model model){
+    public String signUp(@RequestParam String username, @RequestParam String password, @RequestParam boolean nameError, Model model){
         User user = new User(username, password);
-        userRepo.save(user);
-        return "/login";
+        Optional<User> userOptional = userRepo.findByUsername(user.getUsername());
+        if(userOptional.isPresent()){
+            return "/sign-up";
+        }else{
+            userRepo.save(user);
+            return "/login";
+        }
     }
 
 }
