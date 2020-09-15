@@ -22,7 +22,7 @@ public class SignUpController {
     }
 
     @PostMapping("/signup")
-    public String signUp(@RequestParam String username, @RequestParam String password, @RequestParam boolean nameError, Model model){
+    public String signUp(@RequestParam String username, @RequestParam String password, @RequestParam(required = false) boolean nameError, Model model){
         User user = new User(username, password);
         Optional<User> userOptional = userRepo.findByUsername(user.getUsername());
         if(userOptional.isPresent()){

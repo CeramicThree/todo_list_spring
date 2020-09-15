@@ -15,7 +15,7 @@
         </form>
     </div>
     <div class="container mt-5">
-        <div class="container mt-2 alert alert-primary" th:each="el : ${todos}">
+        <div class="container mt-2 alert alert-primary" th:if="${el.author} == ${#httpServletRequest.remoteUser}" th:each="el : ${todos}" >
             <label style="float: right" th:text="${el.author}"/>
             <h1 style="display: inline-block" th:text="${el.text}"/>
             <p th:text="${el.description}"/>
